@@ -3,6 +3,8 @@
 * todas las varibles deben estar asignadas
 * test-objetivo --> verifica que exista una asignacion completa y consistente
 
+---
+
 ### Cryptoaritmetica
 - Cada letra representa un digito
 
@@ -22,7 +24,6 @@
 #### Caracteristicas
 - Dominio
 ```
-
 D={0,1,2,3,4,5,6,7,8,9}
 ```
 
@@ -32,8 +33,9 @@ X={F,T,U,W,R,O}
 
 Xa={C1,C2,C3}
 ```
+### Imagen Ejercicio
 
-
+![a picture of bill](./criptoaritmetica_img.jpg)
 
 
 
