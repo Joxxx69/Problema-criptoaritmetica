@@ -1,1 +1,5 @@
 *.txt
+*ejemplo.cpp
+/ejemplos
+*pract.cpp
+*.exe
