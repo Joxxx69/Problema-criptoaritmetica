@@ -21,20 +21,20 @@ struct Variables{
     int valor;     // valores del dominio
 } variable[6];
 
+struct Dominios{
+    int valor;
+    bool estado;
+} dominio[10];
 
 int main(){
     estadoInicial();
     restriccionGlobal();
-    cout << "!Solucion encontrada!" << endl;
-    cout << "   T W O "<<endl;      
-    cout << "+  T W O "<<endl;    
-    cout << " _______ "<<endl;     
-    cout << " F O U R "<<endl;     
-    cout << endl;
+     cout << "   T W O         " << variable[1].valor << " " << variable[3].valor << " " << variable[5].valor << endl;
+     cout << "+  T W O      +  " << variable[1].valor << " " << variable[3].valor << " " << variable[5].valor << endl;
+     cout << " _______       _______" << endl;
+     cout << " F O U R       " << variable[0].valor << " " << variable[5].valor << " " << variable[2].valor << " " << variable[4].valor << endl;
+     cout << endl;
     
-    for(int i = 0; i < 6; i++){
-        cout <<variable[i].nombre<<": "<<variable[i].valor << endl;
-    }
     return 0;
 }
 
@@ -52,7 +52,10 @@ void estadoInicial(){
         variable[i].nombre = X[i];
         variable[i].valor = (i == 0) ? 1 : 0;
     }
-
+    for (int i = 0; i < 10;i++){ // ingreso de valores y estados en el dominio
+        dominio[i].valor = i;
+        dominio[i].estado = (i == 1) ? false : true;
+    }
 }
 
 //-----------------------------Restricciones Unarias, Binarias, Globles-----------------------------------------
@@ -72,7 +75,9 @@ void restriccionGlobal(){
     // por la restriccion F = C3 = 1;
     for(int i =0;i<10;i++){
         variable[0].valor = variableAux[2].valor;  // valor de F y C3 --> F=C3
-        variable[5].valor = i;                        //valor de O --> 0,1,2,3,4,5,6,7,8,9
+        dominio[1].estado = false;
+        variable[5].valor = dominio[i].valor;                        //valor de O --> 0,1,2,3,4,5,6,7,8,9
+        dominio[i].estado = false;
         variable[4].valor = (2 * variable[5].valor > 9)?2*variable[5].valor-10: 2*variable[5].valor;  //valor de  R --> 0,2,4,6,8,0,2,4,6,8
         variableAux[0].valor = (2 * variable[5].valor > 9) ? 1 : 0;  // valor de la C1
         variable[1].valor = 10 + variable[5].valor;
@@ -80,14 +85,21 @@ void restriccionGlobal(){
         variable[1].valor = (variable[5].valor +10  - variableAux[1].valor) / 2; // valor de T -> T= (O+10-C2)/2
 
         for (int j = 0; j < 10;j++){
-            variable[3].valor = j;  //valor de w                                    
-            variable[2].valor = ((((2 * variable[3].valor)+variableAux[0].valor))%10); // valor de U=((2*W)+C1)- 10*C2
+            if(dominio[j].estado){
+                variable[3].valor = dominio[j].valor;  //valor de w
+                dominio[j].estado = false;
+                variable[2].valor = ((((2 * variable[3].valor)+variableAux[0].valor))%10); // valor de U=((2*W)+C1)- 10*C2
+                break;
+            }else{
+                continue;
+            }
         }
         for (int idx = 0; idx < 6;idx++){
             estados[idx] = variable[idx].valor;
         }
         int valor1 = (variable[1].valor);
         int valor2 =((variable[5].valor +10  - variableAux[1].valor)/2);
+        dominio[i].estado = true;
         if(RestriccionBinaria(estados)){
             if(valor1 == valor2){
                 break;
