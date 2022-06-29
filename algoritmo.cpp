@@ -1,20 +1,14 @@
 #include<iostream>
-#include<cstdlib>
-#include<ctime>
-#include<cmath>
 
 using namespace std;
-int combinaciones(int, int);
-int factorial(int);
 void estadoInicial();
 bool RestriccionBinaria(int []);
-void restriccionGlobal();
+void restriccionGlobalUnaria();
 
 struct VariableAux{
     string nombre;  //{"C1", "C2", "C3"};
     int valor;      //C1=?  C2 =?  C3=F
 }variableAux[3];
-
 
 struct Variables{
     string nombre;  //{"F", "T", "U", "W", "R", "O"}
@@ -28,7 +22,7 @@ struct Dominios{
 
 int main(){
     estadoInicial();
-    restriccionGlobal();
+    restriccionGlobalUnaria();
     cout <<endl<<"------Solucion Encotrada-----" << endl;
     cout << endl;
     cout << "     T W O         " << variable[1].valor << " " << variable[3].valor << " " << variable[5].valor << endl;
@@ -71,7 +65,7 @@ bool RestriccionBinaria(int estados[6]){
     }
     return true;
 }
-void restriccionGlobal(){
+void restriccionGlobalUnaria(){
     int estados[6];
      // las Cs tienen valores de 0 - 1 excepto C3=1 --> por la restriccion F = C3 --> F!=0
     // por la restriccion F = C3 = 1;
@@ -114,6 +108,12 @@ void restriccionGlobal(){
     }
 
 }
+
+//#include<cstdlib>
+//#include<ctime>
+//#include<cmath>
+//int combinaciones(int, int);
+//int factorial(int);
 //struct Variables{
 //    string nombre;
 //    int valor;
@@ -161,34 +161,10 @@ void restriccionGlobal(){
 //    //}
 //}
 
+//int factorial(int numero){
+//    return (numero >= 1) ?  numero* factorial(numero - 1) :  1;
+//}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-int factorial(int numero){
-    return (numero >= 1) ?  numero* factorial(numero - 1) :  1;
-}
-
-int combinaciones(int numero, int duo){
-    return (factorial(numero)/(factorial(duo)*factorial(numero-duo)));
-}
+//int combinaciones(int numero, int duo){
+//    return (factorial(numero)/(factorial(duo)*factorial(numero-duo)));
+//}
