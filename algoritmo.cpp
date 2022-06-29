@@ -152,13 +152,13 @@ void restriccionGlobalUnaria(){
 //        variableAux[i].nombre = Y[i];
 //    }
 
-//    //cout <<endl<<"el contador es: "<<contador<<endl;
-//    //for (int i = 0; i < 210;i++){
-//    //    for (int j = 0; j < 6;j++){
-//    //        cout << variable[i][j].valor << "  ";
-//    //    }
-//    //    cout << endl;
-//    //}
+//    cout <<endl<<"el contador es: "<<contador<<endl;
+//    for (int i = 0; i < 210;i++){
+//        for (int j = 0; j < 6;j++){
+//            cout << variable[i][j].valor << "  ";
+//        }
+//        cout << endl;
+//    }
 //}
 
 //int factorial(int numero){
