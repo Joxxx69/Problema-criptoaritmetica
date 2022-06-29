@@ -29,11 +29,13 @@ struct Dominios{
 int main(){
     estadoInicial();
     restriccionGlobal();
-     cout << "   T W O         " << variable[1].valor << " " << variable[3].valor << " " << variable[5].valor << endl;
-     cout << "+  T W O      +  " << variable[1].valor << " " << variable[3].valor << " " << variable[5].valor << endl;
-     cout << " _______       _______" << endl;
-     cout << " F O U R       " << variable[0].valor << " " << variable[5].valor << " " << variable[2].valor << " " << variable[4].valor << endl;
-     cout << endl;
+    cout <<endl<<"------Solucion Encotrada-----" << endl;
+    cout << endl;
+    cout << "     T W O         " << variable[1].valor << " " << variable[3].valor << " " << variable[5].valor << endl;
+    cout << "  +  T W O      +  " << variable[1].valor << " " << variable[3].valor << " " << variable[5].valor << endl;
+    cout << "   _______       _______" << endl;
+    cout << "   F O U R       " << variable[0].valor << " " << variable[5].valor << " " << variable[2].valor << " " << variable[4].valor << endl;
+    cout << endl;
     
     return 0;
 }
